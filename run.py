@@ -34,12 +34,16 @@ def contenido_form(cont_id=None):
     duracion = request.form['duracion']
     print(name, tipo, sinopsis, duracion)
     conn = conexion()
-    cur = conn.cursor()
-    consulta = "INSERT INTO contenidos (titulo, tipo, sinopsis, duracion) VALUES(%s, %s, %s, %s) RETURNING idContenido"
-    cur.execute(consulta, [name, tipo, sinopsis, duracion])
-    cont_id = cur.fetchone()[0]
-    cur.close()
-    conn.close()
+    try:
+        cur = conn.cursor()
+        consulta = "INSERT INTO contenidos (titulo, tipo, sinopsis, duracion) VALUES(%s, %s, %s, %s) RETURNING idContenido"
+        cur.execute(consulta, [name, tipo, sinopsis, duracion])
+        cont_id = cur.fetchone()[0]
+        cur.close()
+        conn.close()
+    except psycopg2.DatabaseError as error:
+        print("Error. No se ha podido insertar el Servidor")
+        print(error)
     return "ndkcsdkvn"
 
 @app.route('/contenido', methods=['GET'])
