@@ -5,8 +5,8 @@
 {% block content %}
     {% for contenido in contenidos %}
         <div>
-            <h3>#{{ contenido[0] }} - {{ contenido[1] }}</h3>
-            <a href="http://127.0.0.1:5000/contenido/{{ contenido[0] }}">Ver detalles </a>
+            <h3>#{{ contenido.idcontenido }} - {{ contenido.titulo }}</h3>
+            <a href="http://127.0.0.1:5000/contenido/{{ contenido.idcontenido }}">Ver detalles </a>
         </div>
     {% endfor %}
     <h3>Añadir contenido</h3>

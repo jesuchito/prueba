@@ -5,10 +5,10 @@
 {% block content %}
     Mostrando el contenido #{{ idCont }}
     <div>
-        <h3>{{ contenido[1] }}</h3>
-        <p>Tipo {{ contenido[2] }}</p>
-        <i><p>({{ contenido[4] }} minutos)</p></i>
-        <p>{{ contenido[3] }}</p>
+        <h3>{{ contenido.titulo }}</h3>
+        <p>Tipo {{ contenido.tipo }}</p>
+        <i><p>({{ contenido.duracion }} minutos)</p></i>
+        <p>{{ contenido.sinopsis }}</p>
         <i><p>Género: {{ contenido[5] }}</p></i>
         <p>Director: {{ contenido[6] }}</p>
         <p>Elenco: {{ contenido[7] }}</p>
